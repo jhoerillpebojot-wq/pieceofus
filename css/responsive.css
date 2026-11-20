@@ -1,0 +1,13 @@
+@media (max-width:360px){
+  .home h1{font-size:30px}
+  .mascot{width:120px;height:120px}
+  .level-map{gap:10px 6px}
+}
+@media (max-height:640px){
+  .mascot{width:104px;height:104px}
+  .welcome{margin-bottom:14px}
+}
+@media (min-width:700px){
+  body{background:var(--bg2);display:grid;place-items:center}
+  #app{height:min(880px,96vh);border-radius:34px;box-shadow:0 20px 60px rgba(184,100,124,.25)}
+}

@@ -1,0 +1,193 @@
+:root{
+  --bg:#f6f0ff; --bg2:#e9defa; --pink:#e6c9f5; --pink-deep:#b99add; --rose:#79549f;
+  --cream:#fff9ff; --white:#fffaff; --lav:#e8dcfa; --lav-deep:#9878c5;
+  --text:#443453; --soft:#806f91; --line:#e5d7f3;
+  --shadow:0 6px 18px rgba(126,91,164,.18); --shadow-s:0 2px 7px rgba(126,91,164,.13);
+  --nav-h:66px;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --sans:ui-rounded,"SF Pro Rounded","Hiragino Maru Gothic ProN",Quicksand,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{background:var(--bg);color:var(--text);font:16px/1.5 var(--sans);overscroll-behavior:none;-webkit-font-smoothing:antialiased}
+button,input{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+:focus-visible{outline:3px solid var(--lav-deep);outline-offset:2px}
+.ic{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+#app{display:flex;flex-direction:column;height:100vh;height:100dvh;max-width:100%;margin:0 auto;background:var(--bg);position:relative;overflow:hidden}
+#screens{flex:1;overflow-y:auto;padding:calc(env(safe-area-inset-top,0px) + 22px) 20px 28px;-webkit-overflow-scrolling:touch}
+.screen{display:none}
+.screen.active{display:block;animation:enter .35s ease both}
+@keyframes enter{from{opacity:0}to{opacity:1}}
+
+h1,h2{font-family:var(--serif);font-weight:600;line-height:1.15}
+.screen-head{margin-bottom:18px}
+.screen-head h2{font-size:30px}
+.screen-head p{color:var(--soft);font-size:15px;margin-top:4px}
+.note{color:var(--soft);font-size:13px;text-align:center;margin:18px 0 0}
+
+/* Home */
+.home{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;padding-top:6px}
+.gear{position:absolute;right:-4px;top:-4px;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;color:var(--rose)}
+.mascot{width:150px;height:150px;margin-top:10px;animation:bob 4.5s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-6px) rotate(1.5deg)}}
+.home h1{font-size:36px;margin-top:6px;color:var(--text)}
+.welcome{color:var(--soft);max-width:30ch;margin:10px 0 22px}
+.progress-card{width:100%;margin-bottom:18px}
+.progress-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;font-size:15px}
+.progress-row strong{font-family:var(--serif);font-size:22px;color:var(--rose)}
+.bar{height:12px;border-radius:99px;background:var(--lav);overflow:hidden}
+.bar i{display:block;height:100%;width:0;border-radius:99px;background:var(--pink-deep);transition:width .6s ease}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;justify-content:center}
+.trio{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;width:100%;margin-top:14px}
+
+
+/* Our Little Home: star-funded room restoration */
+.home-renovation{width:100%;margin:2px 0 18px;text-align:left}
+.renovation-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin:0 0 12px}
+.renovation-head h2{font:600 25px/1.15 var(--serif);color:var(--text)}
+.renovation-head p{font-size:12px;color:var(--soft);max-width:28ch;margin-top:4px}
+.renovation-wallet{flex:none;background:var(--cream);border:1px solid var(--line);border-radius:99px;padding:6px 11px;font-weight:800;color:var(--rose);font-size:14px}
+.room-card{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:13px;margin:10px 0;box-shadow:var(--shadow-s)}
+.room-top,.room-title{display:flex;align-items:center;gap:9px}
+.room-top{justify-content:space-between;margin-bottom:10px}
+.room-title h3{font:600 17px/1.2 var(--serif)}
+.room-title small{display:block;color:var(--soft);font-size:11px;margin-top:2px}
+.room-icon{width:38px;height:38px;border-radius:13px;background:var(--bg2);display:grid;place-items:center;font-size:21px}
+.room-count{font-size:11px;font-weight:800;color:var(--rose);white-space:nowrap}
+.room-scene{min-height:76px;border-radius:14px;background:linear-gradient(135deg,#fff1f4,#f5eafa 60%,#fff8ec);display:flex;align-items:center;justify-content:space-around;gap:5px;padding:10px;margin-bottom:10px;overflow:hidden}
+.scene-piece{font-size:25px;filter:grayscale(.75);opacity:.45;transform:translateY(3px);transition:filter .2s,opacity .2s,transform .2s}
+.room-scene.stage-1 .scene-piece:nth-child(-n+1),
+.room-scene.stage-2 .scene-piece:nth-child(-n+2),
+.room-scene.stage-3 .scene-piece{filter:none;opacity:1;transform:none}
+.room-locked .room-scene{filter:grayscale(.65);opacity:.65}
+.room-locked .room-lock-note,.room-lock-note{font-size:11px;color:var(--soft);margin:4px 2px 0}
+.room-tasks{display:grid;gap:7px}
+.room-task{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;text-align:left;padding:9px 10px;border-radius:12px;background:#fff6f8;border:1px solid #f4dce3;font-size:12px;min-height:40px}
+.room-task:disabled{opacity:.52;cursor:default}
+.room-task.task-done{background:#f1f6ed;border-color:#dce8d5;color:#60785a;opacity:1}
+.task-name{min-width:0}
+.task-cost{font-weight:800;color:var(--rose);white-space:nowrap}
+.room-task.task-done .task-cost{color:#60785a}
+.room-finished{border-color:#dce8d5}
+
+
+/* App-like touch behavior: UI labels and controls are not selectable text. */
+html, body, #app, #screens, .screen, button, .btn, .chip, .level-map,
+.level-node, .ws-board, .ws-grid, .ws-cell, .ws-chip, .mt-board, .mt,
+.mt-goal, .nav, #nav, #nav button, .room-task, .room-card, .seg,
+.ltr-card, .sec-card, .bk-chap, .pn, .icon-btn {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+html, body, #app {
+  touch-action: pan-x pan-y;
+  -webkit-text-size-adjust: 100%;
+}
+button, a, .btn, [role="button"] {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+/* Preserve normal selection and copying in actual reading/editing areas. */
+.rd-body, .bk-text-body, input, textarea, select, [contenteditable="true"] {
+  -webkit-user-select: text;
+  user-select: text;
+  -webkit-touch-callout: default;
+}
+
+/* Wide, landscape-first play experience; compact portrait fallback remains usable. */
+@media (orientation:landscape) and (min-width:600px){
+  #app{max-width:100%;width:100%;height:100dvh;border-radius:0;display:grid;grid-template-columns:minmax(150px,190px) 1fr;grid-template-rows:1fr;}
+  #screens{grid-column:2;grid-row:1;padding:18px 28px 22px;min-width:0;}
+  #nav{grid-column:1;grid-row:1;position:relative;display:flex;flex-direction:column;justify-content:center;gap:8px;padding:18px 10px;height:100%;border-right:1px solid var(--line);border-top:0;}
+  #nav button{width:100%;min-height:48px;justify-content:flex-start;padding:8px 14px;}
+  .screen.active{max-width:1180px;margin:0 auto;}
+  #screen-game.active,#screen-match.active{display:grid;grid-template-columns:minmax(280px,1fr) minmax(280px,1fr);grid-template-rows:auto auto 1fr;gap:12px 24px;align-items:center;}
+  #screen-game .ws-head,#screen-match .ws-head{grid-column:1/-1;}
+  #screen-game .ws-prog,#screen-match .mt-hud,#screen-match .mt-goals{grid-column:1/-1;}
+  #screen-game .ws-board,#screen-match .mt-board{grid-column:1;grid-row:3;}
+  #screen-game .ws-words,#screen-game .ws-hint,#screen-match #mt-tip{grid-column:2;}
+  #screen-game .ws-grid{max-width:min(66vh,620px);margin:auto;}
+  .home{display:grid;grid-template-columns:minmax(220px,.8fr) minmax(280px,1.2fr);gap:14px 24px;text-align:left;align-items:center;}
+  .home .mascot,.home h1,.home .welcome{grid-column:1;}
+  .home .progress-card,.home-renovation,.home .btn-big,.home .trio{grid-column:2;}
+  .home .mascot{justify-self:center;}
+  .home h1,.home .welcome{text-align:center;justify-self:center;}
+}
+@media (min-width:700px) and (orientation:portrait){#app{max-width:900px;border-radius:24px;}}
+
+/* Room decorating controls */
+.room-decor-scene{min-height:92px;background:linear-gradient(135deg,#f1e5ff,#fff1fa 55%,#eee6ff)}
+.room-decor-scene .chosen-piece{filter:none;opacity:1;font-size:12px;line-height:1.2;text-align:center}
+.decor-choices{display:grid;gap:9px}.decor-slot{padding:8px 0;border-top:1px solid var(--line)}.decor-slot strong{font-size:12px;color:var(--soft);text-transform:capitalize}.decor-options{display:flex;gap:7px;flex-wrap:wrap;margin-top:5px}.decor-option{background:#f6efff;border:1px solid #e2d4f3;border-radius:12px;padding:8px 10px;font-size:11px;color:var(--text)}.decor-option.selected{background:#e8dafb;border-color:var(--lav-deep);font-weight:800}.decor-option:disabled{opacity:1}
+/* Animal Atelier */
+.paint-entry{margin:18px 0;text-align:center}.paint-entry h3{font:600 20px var(--serif)}.paint-entry p{font-size:13px;color:var(--soft);margin:6px 0 12px}.paint-picker{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:12px}.paint-animal{display:flex;flex-direction:column;align-items:center;gap:5px;background:var(--white);border:1px solid var(--line);border-radius:18px;padding:16px 10px;box-shadow:var(--shadow-s)}.paint-animal span{font-size:42px}.paint-animal strong{font:600 16px var(--serif)}.paint-animal small{font-size:11px;color:var(--soft)}.paint-hud{display:flex;justify-content:space-between;font-weight:700;color:var(--rose);margin:12px 0}.paint-zoom-controls{display:flex;align-items:center;justify-content:center;gap:10px;margin:8px auto 10px;color:var(--soft);font-size:12px;font-weight:700}.paint-zoom-controls button{min-width:36px;min-height:34px;padding:4px 10px;border:1px solid var(--line);border-radius:10px;background:var(--white);color:var(--ink);font:inherit;cursor:pointer}.paint-zoom-controls button:active{transform:scale(.96)}.paint-canvas-wrap{width:min(78vw,560px);max-height:72vh;margin:0 auto;background:#fffdfb;border:8px solid #e8dcfa;border-radius:16px;overflow:auto;box-shadow:var(--shadow);overscroll-behavior:contain}#animal-canvas{display:block;width:100%;height:auto;max-width:none;touch-action:manipulation}.paint-palette{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:14px 0}.paint-swatch{width:42px;height:42px;border-radius:50%;background:var(--swatch);border:3px solid #fff;box-shadow:0 0 0 1px var(--line),var(--shadow-s)}.paint-swatch.active{outline:3px solid var(--lav-deep);outline-offset:3px;transform:scale(1.08)}#paint-save{width:100%;margin-top:12px}#paint-save:disabled{opacity:.45}
+@media (orientation:landscape) and (min-width:600px){#screen-paint.active{display:grid;grid-template-columns:minmax(230px,.75fr) minmax(340px,1.25fr);gap:12px 28px;align-items:start}#screen-paint .ws-head{grid-column:1/-1}#screen-paint .paint-diff{grid-column:1/-1}#screen-paint .paint-picker{grid-column:1/-1;grid-template-columns:repeat(5,1fr)}#screen-paint #paint-workspace{grid-column:1/-1;display:grid;grid-template-columns:minmax(320px,1fr) minmax(250px,.8fr);gap:10px 24px;align-items:center}#screen-paint #paint-workspace[hidden]{display:none}#screen-paint .paint-hud{grid-column:1/-1}#screen-paint .paint-canvas-wrap{grid-column:1;grid-row:2/5;width:min(62vh,560px)}#screen-paint .paint-palette,#screen-paint .note,#screen-paint #paint-save{grid-column:2}}
+
+/* Dark-lavender, mischievous-cute accents (bows, tiny stars and moon motifs). */
+.home h1{color:#59406f;text-shadow:0 2px 0 #fff} .home h1::after{content:"  ♡ ✦";font:18px var(--sans);color:#9a79c4;white-space:nowrap}.screen-head h2,.renovation-head h2{color:#5a4374}.room-icon{background:linear-gradient(145deg,#f0e4ff,#fceafa);color:#79549f}.btn-primary{background:linear-gradient(135deg,#ad8bd5,#d59bc7)}#nav button[aria-current="page"]{color:#76519a;background:#eee3fb}
+
+
+/* Compact level map: three distinct game markers and less oversized spacing. */
+.level-map{grid-template-columns:repeat(auto-fill,minmax(42px,1fr))!important;gap:7px!important;padding:8px 2px 20px!important;max-width:1180px;margin:0 auto}
+.level{width:auto!important;height:52px!important;min-width:0}
+.level button{width:39px!important;height:39px!important;font-size:13px!important}
+.level .tag{font-size:12px!important}
+.level.p button{background:linear-gradient(145deg,#f7e8ff,#d9c3f3);border:2px solid #a985cf;color:#65477f}
+.level.p .tag{color:#8059a5}
+#screen-play .screen-head{margin-bottom:10px}#screen-play .screen-head h2{font-size:25px}
+.paint-entry{padding:12px!important;margin:12px 0!important}.paint-entry h3{font-size:17px!important}.paint-picker{gap:8px!important}.paint-animal{padding:10px 8px!important}.paint-animal span{font-size:32px!important}
+#screen-paint .paint-canvas-wrap{width:min(68vw,480px);border-width:5px}
+#screen-paint .paint-swatch{width:34px;height:34px}
+
+/* Our Little Home is a small illustrated room scene, not a row of emoji labels. */
+.room-card{padding:10px!important;margin:8px 0!important;border-radius:16px!important}
+.room-scene.room-decor-scene{position:relative;display:block;height:190px;min-height:190px;padding:0!important;border:1px solid #d9c6eb;border-radius:13px;overflow:hidden;background:linear-gradient(180deg,#e9ddf6 0 68%,#c9addb 68% 72%,#b48bbf 72% 100%);box-shadow:inset 0 -8px 0 rgba(93,60,117,.08)}
+.scene-object{position:absolute;box-sizing:border-box}
+.scene-wall{inset:0 0 32% 0;background:linear-gradient(145deg,#f5eaff,#e6d6f4 68%,#f9e9f4);z-index:0}
+.scene-floor{left:0;right:0;bottom:0;height:34%;background:repeating-linear-gradient(90deg,#c5a5d1 0 2px,#d5b9dc 2px 42px);z-index:1}
+.scene-window{left:7%;top:13%;width:22%;height:39%;border:6px solid #fff6ff;border-radius:7px;background:linear-gradient(150deg,#a9d6ed,#f5cce5 65%,#f9e8bf);box-shadow:0 3px 6px #826b9a;z-index:2}
+.scene-window:after{content:"";position:absolute;left:48%;top:0;bottom:0;border-left:3px solid #fff6ff}.scene-window:before{content:"";position:absolute;left:0;right:0;top:48%;border-top:3px solid #fff6ff}
+.scene-wall-art{left:42%;top:14%;width:16%;height:21%;border:5px solid #fff8ff;background:radial-gradient(circle at 50% 40%,#f8c4df 0 18%,transparent 19%),linear-gradient(135deg,#c4a4e2,#f7d8ed);box-shadow:0 2px 5px #8c739e;z-index:2}
+.scene-rug{left:30%;bottom:8%;width:42%;height:20%;border-radius:50%;background:radial-gradient(ellipse,#f8d7ed,#b895d1);border:3px solid #f7eaff;z-index:2}
+.scene-main-furniture{left:31%;bottom:24%;width:42%;height:37%;border-radius:18px 18px 9px 9px;background:linear-gradient(145deg,#cf91bd,#a76fa9);border:3px solid #fff0fb;box-shadow:0 5px 0 #815b91;z-index:4}
+.scene-main-furniture:before{content:"";position:absolute;left:7%;right:7%;top:13%;height:55%;border-radius:12px;background:linear-gradient(90deg,rgba(255,255,255,.28),transparent 40%,rgba(255,255,255,.2));border:2px solid rgba(255,255,255,.35)}
+.scene-main-furniture:after{content:"";position:absolute;left:10%;bottom:-10px;width:8px;height:12px;background:#75547f;box-shadow:105px 0 #75547f}
+.scene-side-table{left:76%;bottom:23%;width:12%;height:24%;background:linear-gradient(#d7b1e0 0 18%,#9a70ad 18% 100%);border-radius:5px;z-index:3}
+.scene-lamp{left:78%;top:27%;width:9%;height:30%;z-index:5}
+.scene-lamp:before{content:"";position:absolute;left:8%;top:0;width:84%;height:42%;background:#f7d7a5;clip-path:polygon(20% 0,80% 0,100% 100%,0 100%);filter:drop-shadow(0 2px 2px #9278a2)}
+.scene-lamp:after{content:"";position:absolute;left:46%;top:40%;height:55%;border-left:3px solid #886b9a;box-shadow:0 28px 0 -1px #886b9a}
+.scene-plant{left:7%;bottom:18%;width:15%;height:30%;z-index:5}
+.scene-plant:before{content:"";position:absolute;left:22%;bottom:0;width:58%;height:35%;background:linear-gradient(90deg,#c77da8,#f0c0d8);clip-path:polygon(10% 0,90% 0,75% 100%,25% 100%)}
+.scene-plant:after{content:"";position:absolute;left:48%;bottom:26%;width:5px;height:65%;background:#648b70;box-shadow:-10px -14px 0 -1px #7da987,9px -22px 0 -1px #5f9875,-15px -30px 0 -1px #82b18a,14px -38px 0 -1px #659b79}
+.scene-shelf{right:7%;top:15%;width:17%;height:5px;background:#a47ab4;box-shadow:0 4px 0 #f6eaff;z-index:4}
+.scene-caption{position:absolute;right:8px;bottom:5px;z-index:8;font-size:9px;font-weight:800;color:#fff;text-shadow:0 1px 3px #654c79;letter-spacing:.04em}
+.scene-bedroom .scene-main-furniture{height:29%;border-radius:8px 8px 5px 5px;background:linear-gradient(90deg,#d6c1ec,#a98bc9)}
+.scene-bedroom .scene-main-furniture:before{top:-20%;height:30%;background:#fff1fa;border-radius:8px}
+.scene-kitchen .scene-main-furniture{left:35%;width:34%;height:18%;bottom:30%;border-radius:7px;background:#c99b75}
+.scene-kitchen .scene-main-furniture:before{display:none}
+.scene-memory .scene-main-furniture{background:linear-gradient(145deg,#b9a0d7,#8f75ae);height:26%}
+.scene-memory .scene-wall-art{width:24%;left:38%;height:27%}
+.scene-object.style-1.scene-main-furniture{background:linear-gradient(145deg,#e7a8c8,#bd78ad)}
+.scene-object.style-2.scene-main-furniture{background:linear-gradient(145deg,#c3a5ed,#8e72bd)}
+.scene-object.style-3.scene-main-furniture{background:linear-gradient(145deg,#e8d7b9,#bfa27d)}
+.scene-object.style-1.scene-rug{background:radial-gradient(ellipse,#f9d7e9,#dc91ba)}
+.scene-object.style-2.scene-rug{background:radial-gradient(ellipse,#e1d3ff,#9b7ac7)}
+.scene-object.style-3.scene-rug{background:radial-gradient(ellipse,#fff1c9,#d7b47a)}
+.scene-object.style-1.scene-wall-art{background:linear-gradient(135deg,#f6c3de,#d48dbb)}
+.scene-object.style-2.scene-wall-art{background:linear-gradient(135deg,#c9b3f2,#8c73ba)}
+.scene-object.style-3.scene-wall-art{background:linear-gradient(135deg,#f7e4b8,#d4a46d)}
+@media (max-width:700px){.room-scene.room-decor-scene{height:160px;min-height:160px}.level-map{gap:5px!important;grid-template-columns:repeat(auto-fill,minmax(39px,1fr))!important}.level button{width:36px!important;height:36px!important}}
+
+/* Painting Our Memories */
+.paint-diff{display:flex;align-items:center;justify-content:center;gap:8px;margin:0 0 12px;flex-wrap:wrap}.paint-diff[hidden]{display:none}.paint-diff span{font-size:12px;font-weight:700;color:var(--soft)}
+.paint-diff button{padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--white);color:var(--ink);font:inherit;font-size:13px;font-weight:600}.paint-diff button[aria-pressed="true"]{background:var(--lav-deep);border-color:var(--lav-deep);color:#fff}
+.paint-memory{padding:8px 8px 12px!important;text-align:center}.paint-memory img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:12px;filter:grayscale(1) contrast(.9) brightness(1.08);background:#efe9f6}.paint-memory strong{font-size:14px!important;line-height:1.2}.paint-more{grid-column:1/-1;text-align:center}
+.paint-zoom-controls{flex-wrap:wrap}#paint-hint{min-width:0!important;font-size:12px}#paint-hint[aria-pressed="true"]{background:var(--lav-deep);border-color:var(--lav-deep);color:#fff}
+#animal-canvas.loading{opacity:.35;min-height:240px}
+.paint-swatch{position:relative;display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;color:var(--swatch-ink,#4a3f55)}.paint-swatch .c{position:absolute;right:-5px;top:-6px;min-width:18px;height:18px;padding:0 4px;border-radius:9px;background:#fff;color:#4a3f55;font-size:10px;line-height:18px;box-shadow:0 0 0 1px var(--line)}.paint-swatch.finished{opacity:.45}
+/* Painting canvas takes the shape of the photo (portrait or landscape) and fits the screen at 100% zoom */
+#screen-paint .paint-canvas-wrap{--ah:70vh;width:min(100%,560px,calc(var(--ah) * var(--ar,1)));aspect-ratio:var(--ar,1);max-height:none;box-sizing:border-box;border:0;padding:0;margin:0 auto;box-shadow:0 0 0 6px #e8dcfa,var(--shadow)}
+@media (orientation:landscape) and (min-width:600px){#screen-paint .paint-canvas-wrap{--ah:max(calc(100vh - 150px),360px)}}

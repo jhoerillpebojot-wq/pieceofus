@@ -1,0 +1,2 @@
+Put photos for this chapter here (jpg, jpeg, png or webp).
+Then set photo:"file-name.jpg" for the memory in js/album-config.js.

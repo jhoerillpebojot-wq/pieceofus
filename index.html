@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>A Little Piece of Us</title>
+<meta name="description" content="A little world made just for you.">
+<meta name="theme-color" content="#f8dfe6">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icons/icon-180.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Little Piece">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/word-search.css">
+<link rel="stylesheet" href="css/match-three.css">
+<link rel="stylesheet" href="css/album.css">
+<link rel="stylesheet" href="css/letters.css">
+<link rel="stylesheet" href="css/garden.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z"/></symbol>
+    <symbol id="i-album" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="2"/><path d="M4 18l5-4 4 3 3-2 4 3"/></symbol>
+    <symbol id="i-letters" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3.5 7l8.5 6 8.5-6"/></symbol>
+    <symbol id="i-garden" viewBox="0 0 24 24"><path d="M12 21v-9M12 12c-4 0-6-2-6-6 4 0 6 2 6 6zM12 14c4 0 6-2 6-6-4 0-6 2-6 6z"/></symbol>
+    <symbol id="i-word" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3.5"/><path d="M8.5 16.5l3.5-9 3.5 9M9.8 13.4h4.4"/></symbol>
+    <symbol id="i-gem" viewBox="0 0 24 24"><path d="M7 4h10l3.5 5L12 20.5 3.5 9z"/><path d="M3.5 9h17M9.5 4L8 9l4 11.5L16 9l-1.5-5"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M9 6v12M15 6v12"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M5 4h10a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h10"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.3 5.9.9-4.2 4.1 1 5.8-5.3-2.8-5.3 2.8 1-5.8L3.5 9.7l5.9-.9z"/></symbol>
+  </defs>
+</svg>
+
+<div id="app">
+  <main id="screens">
+
+    <!-- HOME -->
+    <section class="screen" id="screen-home" data-screen="home" aria-label="Home">
+      <div class="home">
+        <button class="gear" data-go="settings" aria-label="Settings"><svg class="ic"><use href="#i-gear"/></svg></button>
+        <svg class="mascot" viewBox="0 0 160 160" role="img" aria-label="A little flower friend">
+          <g transform="translate(80 74)">
+            <g fill="#f6c1cf">
+              <ellipse cy="-38" rx="25" ry="30"/>
+              <ellipse cy="-38" rx="25" ry="30" transform="rotate(72)"/>
+              <ellipse cy="-38" rx="25" ry="30" transform="rotate(144)"/>
+              <ellipse cy="-38" rx="25" ry="30" transform="rotate(216)"/>
+              <ellipse cy="-38" rx="25" ry="30" transform="rotate(288)"/>
+            </g>
+            <circle r="30" fill="#fff8ec"/>
+            <circle cx="-10" cy="-3" r="3" fill="#5a3d3a"/><circle cx="10" cy="-3" r="3" fill="#5a3d3a"/>
+            <circle cx="-18" cy="6" r="5" fill="#f3b3c4" opacity=".7"/><circle cx="18" cy="6" r="5" fill="#f3b3c4" opacity=".7"/>
+            <path d="M-6 6q6 6 12 0" fill="none" stroke="#5a3d3a" stroke-width="2.4" stroke-linecap="round"/>
+          </g>
+          <path d="M80 118v32" stroke="#a9c7a0" stroke-width="5" stroke-linecap="round"/>
+          <path d="M80 138c-14 0-20-6-22-14 12-1 20 4 22 14zM80 142c12 0 18-5 20-12-11-1-18 3-20 12z" fill="#bcd6b3"/>
+        </svg>
+        <h1>A Little Piece of Us</h1>
+        <p class="welcome" id="welcome"></p>
+
+        <aside id="install-promo" aria-label="Add this app to your home screen" style="position:relative;margin:16px 0 20px;padding:16px 15px 14px;border:1px solid #e7b4c4;border-radius:20px;background:linear-gradient(125deg,#fff0f5,#fff8e9);box-shadow:0 8px 22px rgba(160,94,119,.14);text-align:left;">
+          <button id="install-promo-close" type="button" aria-label="Dismiss install reminder" style="position:absolute;right:10px;top:8px;border:0;background:transparent;color:#946b7a;font-size:1.35rem;line-height:1;padding:5px 8px;">&times;</button>
+          <div style="display:flex;align-items:center;gap:12px;padding-right:24px;">
+            <div aria-hidden="true" style="flex:0 0 46px;width:46px;height:46px;border-radius:15px;background:#f6d4df;display:grid;place-items:center;font-size:1.65rem;">♡</div>
+            <div>
+              <strong style="display:block;color:#754b5a;font-size:1rem;">Keep our little world close</strong>
+              <span style="display:block;color:#98717e;font-size:.82rem;line-height:1.4;margin-top:3px;">Add A Little Piece of Us to your home screen for quicker access anytime.</span>
+            </div>
+          </div>
+          <button id="install-promo-button" class="btn btn-primary" type="button" style="width:100%;margin-top:13px;">＋ Add to Home Screen</button>
+          <p id="install-promo-hint" style="margin:8px 2px 0;text-align:center;color:#98717e;font-size:.73rem;">A little app icon, just one tap away.</p>
+        </aside>
+
+        <div class="card progress-card" aria-live="polite">
+          <div class="progress-row"><span>Our little world</span><strong id="home-percent">0%</strong></div>
+          <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" id="home-bar"><i id="home-fill"></i></div>
+          <div class="chips">
+            <span class="chip"><svg class="ic"><use href="#i-star"/></svg><b id="home-stars">0</b> stars</span>
+            <span class="chip"><b id="home-memories">0</b> memories</span>
+            <span class="chip"><b id="home-garden">0</b> in bloom</span>
+          </div>
+        </div>
+
+        <section class="home-renovation" aria-label="Our Little Home">
+          <div id="home-renovation"></div>
+        </section>
+
+        <!-- STICKER CORNER: decorative character-inspired designs -->
+        <section aria-label="Sticker corner" style="margin:22px 0 18px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px;">
+            <h2 style="font-size:1.12rem;margin:0;color:#76515e;">Our Sticker Corner</h2>
+            <span style="font-size:.78rem;color:#a77b89;">tiny things we love</span>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;">
+            <article style="background:linear-gradient(145deg,#f6e5f5,#fff0f5);border:2px dashed #d9a8cf;border-radius:20px;padding:12px 8px 10px;text-align:center;box-shadow:0 5px 14px #9e6c8414;">
+              <svg viewBox="0 0 180 150" role="img" aria-label="Kuromi-inspired purple bunny sticker" style="width:100%;max-width:170px;height:auto;display:block;margin:auto;">
+                <path d="M55 65 34 15Q30 7 40 12L78 42M125 65 146 15Q150 7 140 12L102 42" fill="#30243d" stroke="#30243d" stroke-width="7" stroke-linejoin="round"/>
+                <path d="M35 17 65 43M145 17 115 43" stroke="#e9b5dc" stroke-width="8" stroke-linecap="round"/>
+                <path d="M48 54Q90 27 132 54L140 94Q137 132 90 137Q43 132 40 94Z" fill="#f5d9ee" stroke="#49334d" stroke-width="4"/>
+                <path d="M64 47Q90 32 116 47L124 65Q90 57 56 65Z" fill="#30243d"/>
+                <path d="M79 13q11-12 22 0l-2 17q-9 7-18 0z" fill="#f3a8cf" stroke="#49334d" stroke-width="3"/>
+                <circle cx="73" cy="88" r="4.5" fill="#49334d"/><circle cx="107" cy="88" r="4.5" fill="#49334d"/>
+                <path d="M84 103q6 5 12 0" fill="none" stroke="#49334d" stroke-width="3" stroke-linecap="round"/>
+                <ellipse cx="58" cy="99" rx="9" ry="5" fill="#e99dbd"/><ellipse cx="122" cy="99" rx="9" ry="5" fill="#e99dbd"/>
+                <path d="m25 78 4 9 9 4-9 4-4 9-4-9-9-4 9-4zM151 100l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="#d28bc5"/>
+              </svg>
+              <strong style="display:block;color:#654263;font-size:.95rem;">Kuromi</strong>
+              <span style="font-size:.76rem;color:#896b8b;">mischievous & cute</span>
+            </article>
+            <article style="background:linear-gradient(145deg,#fff0d8,#ffe7e8);border:2px dashed #e8b6a7;border-radius:20px;padding:12px 8px 10px;text-align:center;box-shadow:0 5px 14px #9e6c8414;">
+              <svg viewBox="0 0 180 150" role="img" aria-label="Piglet and Winnie the Pooh-inspired pink pig and yellow bear sticker" style="width:100%;max-width:170px;height:auto;display:block;margin:auto;">
+                <!-- Pooh-inspired yellow bear -->
+                <circle cx="126" cy="53" r="24" fill="#f5c84e" stroke="#a97832" stroke-width="3"/>
+                <circle cx="108" cy="34" r="10" fill="#f5c84e" stroke="#a97832" stroke-width="3"/><circle cx="144" cy="34" r="10" fill="#f5c84e" stroke="#a97832" stroke-width="3"/>
+                <ellipse cx="126" cy="91" rx="24" ry="31" fill="#f5c84e" stroke="#a97832" stroke-width="3"/>
+                <path d="M106 77h40v16q-20 9-40 0z" fill="#cf5548"/>
+                <circle cx="119" cy="51" r="2.5" fill="#5a4030"/><circle cx="133" cy="51" r="2.5" fill="#5a4030"/><ellipse cx="126" cy="61" rx="6" ry="4" fill="#8a5a36"/>
+                <!-- Piglet-inspired pink pig -->
+                <path d="M31 62Q20 42 31 27Q45 34 49 48Q67 34 82 48Q99 63 91 91Q83 119 56 120Q27 118 22 94Q18 77 31 62Z" fill="#f5a9bd" stroke="#a85e78" stroke-width="3"/>
+                <path d="M31 45Q21 21 41 30L51 49M69 47Q81 22 91 39L83 58" fill="#f5a9bd" stroke="#a85e78" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M30 75q27-16 55 0v17q-27 17-55 0z" fill="#f8c1ce" stroke="#a85e78" stroke-width="2.5"/>
+                <circle cx="43" cy="66" r="3" fill="#563d43"/><circle cx="71" cy="66" r="3" fill="#563d43"/>
+                <ellipse cx="57" cy="83" rx="11" ry="7" fill="#e987a5"/><circle cx="53" cy="82" r="1.8" fill="#a85e78"/><circle cx="61" cy="82" r="1.8" fill="#a85e78"/>
+                <path d="M49 97q8 7 16 0" fill="none" stroke="#a85e78" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="m15 119 4 8 8 3-8 4-4 8-4-8-8-4 8-3z" fill="#efb35e"/>
+              </svg>
+              <strong style="display:block;color:#87564e;font-size:.95rem;">Piglet & Pooh</strong>
+              <span style="font-size:.76rem;color:#a27670;">a little storybook duo</span>
+            </article>
+          </div>
+        </section>
+
+        <button class="btn btn-primary btn-big" data-go="play"><svg class="ic"><use href="#i-play"/></svg>Play</button>
+        <div class="trio">
+          <button class="btn btn-soft" data-go="album"><svg class="ic"><use href="#i-album"/></svg>Our Album</button>
+          <button class="btn btn-soft" data-go="letters"><svg class="ic"><use href="#i-letters"/></svg>Letters</button>
+          <button class="btn btn-soft" data-go="story"><svg class="ic"><use href="#i-book"/></svg>Our Story</button>
+          <button class="btn btn-soft" data-go="garden"><svg class="ic"><use href="#i-garden"/></svg>Little Garden</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLAY -->
+    <section class="screen" id="screen-play" data-screen="play" aria-label="Play">
+      <header class="screen-head">
+        <h2>Play</h2>
+        <p><span id="play-stars">0</span> of <span id="play-max">0</span> stars collected</p>
+      </header>
+      <div class="level-map" id="level-map"></div>
+      <article class="card paint-entry"><h3>🎨 Paint Our Memories</h3><p>Our photos start colorless. Mix the colors and paint each memory back to life, one little section at a time.</p><button class="btn btn-primary" data-go="paint">Open painting studio</button></article>
+      <p class="note" id="play-note">Three games take turns along your path: Word Search, Match-3, and Painting Our Memories. No timers, no lives, always another try.</p>
+    </section>
+
+    <!-- GAME: WORD SEARCH -->
+    <section class="screen" id="screen-game" data-screen="game" aria-label="Word Search">
+      <div class="ws-head">
+        <button class="icon-btn" data-go="play" aria-label="Back to levels"><svg class="ic"><use href="#i-back"/></svg></button>
+        <div class="title"><h2 id="ws-title">Level 1</h2><small id="ws-cat"></small></div>
+        <button class="icon-btn" id="ws-menu" aria-label="Pause menu"><svg class="ic"><use href="#i-pause"/></svg></button>
+      </div>
+      <div class="ws-prog"><span id="ws-count">0 of 0 found</span>
+        <div class="bar" id="ws-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"><i id="ws-fill"></i></div></div>
+      <div class="ws-board"><div class="ws-grid" id="ws-grid" aria-label="Word search grid"></div></div>
+      <div class="ws-words" id="ws-words"></div>
+      <button class="btn btn-soft ws-hint" id="ws-hint">Need a hint?</button>
+    </section>
+
+    <!-- GAME: MATCH-3 -->
+    <section class="screen" id="screen-match" data-screen="match" aria-label="Match-3">
+      <div class="ws-head">
+        <button class="icon-btn" data-go="play" aria-label="Back to levels"><svg class="ic"><use href="#i-back"/></svg></button>
+        <div class="title"><h2 id="mt-title">Level 1</h2><small>Match-3</small></div>
+        <button class="icon-btn" id="mt-menu" aria-label="Pause menu"><svg class="ic"><use href="#i-pause"/></svg></button>
+      </div>
+      <div class="mt-hud">
+        <div class="mt-stat"><b id="mt-moves">0</b><span>moves left</span></div>
+        <div class="mt-stat"><b id="mt-score">0</b><span>score</span></div>
+      </div>
+      <div class="mt-goals" id="mt-goals"></div>
+      <div class="mt-board" id="mt-board" aria-label="Match-3 board">
+        <div class="mt-jelly" id="mt-jelly"></div>
+        <div class="mt-tiles" id="mt-tiles"></div>
+      </div>
+      <p class="note" id="mt-tip"></p>
+    </section>
+
+    <!-- PAINTING STUDIO -->
+    <section class="screen" id="screen-paint" data-screen="paint" aria-label="Animal Painting Studio">
+      <header class="ws-head"><button class="icon-btn" data-go="play" aria-label="Back"><svg class="ic"><use href="#i-back"/></svg></button><div class="title"><h2>Painting Our Memories</h2><small id="paint-title">Choose a memory to paint</small></div></header>
+      <div id="paint-diff" class="paint-diff" role="group" aria-label="How detailed"></div>
+      <div id="paint-picker" class="paint-picker"></div>
+      <div id="paint-workspace" hidden><div class="paint-hud"><span id="paint-progress">0% painted</span><span id="paint-palette-name">Choose a color</span></div><div class="paint-zoom-controls" aria-label="Coloring page zoom controls"><button type="button" id="paint-zoom-out" aria-label="Zoom out">−</button><span id="paint-zoom-level">100%</span><button type="button" id="paint-zoom-in" aria-label="Zoom in">+</button><button type="button" id="paint-zoom-reset">Reset</button><button type="button" id="paint-hint" aria-pressed="true">Show where it goes</button></div><div class="paint-canvas-wrap"><canvas id="animal-canvas" width="640" height="640" aria-label="A colorless memory to paint by numbers. Zoom in to tap small sections."></canvas></div><div id="paint-palette" class="paint-palette"></div><p class="note">Pick a color, then tap every section with that number. The glowing sections show where the chosen color goes. Your place is saved as you paint.</p><button class="btn btn-soft" id="paint-save" disabled>Save my painting</button></div>
+    </section>
+
+    <!-- ALBUM -->
+    <section class="screen" id="screen-album" data-screen="album" aria-label="Our Album">
+      <div id="album-root"></div>
+    </section>
+
+    <!-- LETTERS -->
+    <section class="screen" id="screen-letters" data-screen="letters" aria-label="Letters">
+      <div id="letters-root"></div>
+    </section>
+
+    <!-- STORY -->
+    <section class="screen" id="screen-story" data-screen="story" aria-label="Our Story">
+      <div id="story-root"></div>
+    </section>
+
+    <!-- GARDEN -->
+    <section class="screen" id="screen-garden" data-screen="garden" aria-label="Little Garden">
+      <div id="garden-root"></div>
+    </section>
+
+    <!-- SETTINGS -->
+    <section class="screen" id="screen-settings" data-screen="settings" aria-label="Settings">
+      <header class="screen-head">
+        <h2>Settings</h2>
+        <p>Make it feel like yours.</p>
+      </header>
+      <div class="card settings">
+        <label class="row col"><span>What should I call you?</span>
+          <input type="text" id="set-name" maxlength="24" placeholder="love" autocomplete="off"></label>
+        <label class="row"><span>Sound effects</span><input type="checkbox" class="switch" id="set-sound"></label>
+        <label class="row"><span>Vibration</span><input type="checkbox" class="switch" id="set-vibration"></label>
+        <label class="row"><span>Reduce motion</span><input type="checkbox" class="switch" id="set-motion"></label>
+      </div>
+      <p class="note" id="storage-note"></p>
+      <div class="backup-card card">
+        <h3>Progress backup</h3>
+        <p>Save a copy of your levels, stars, letters, memories, stories, garden, and settings. Keep the file somewhere safe.</p>
+        <div class="backup-actions">
+          <button class="btn btn-soft" id="export-backup">Export progress</button>
+          <button class="btn btn-soft" id="import-backup">Import progress</button>
+        </div>
+        <input id="backup-file" type="file" accept="application/json,.json" hidden>
+        <p class="backup-note">Imported photos stored separately in this browser are not included. Photos bundled with the game stay in its assets folder.</p>
+      </div>
+      <button class="btn btn-quiet" id="reset-btn">Start over</button>
+      <p class="note">A Little Piece of Us &middot; version <span id="app-version"></span></p>
+    </section>
+
+  </main>
+
+  <nav id="nav" aria-label="Main">
+    <button data-go="home"><svg class="ic"><use href="#i-home"/></svg><span>Home</span></button>
+    <button data-go="play"><svg class="ic"><use href="#i-play"/></svg><span>Play</span></button>
+    <button data-go="album"><svg class="ic"><use href="#i-album"/></svg><span>Album</span></button>
+    <button data-go="letters"><svg class="ic"><use href="#i-letters"/></svg><span>Letters</span></button>
+    <button data-go="story"><svg class="ic"><use href="#i-book"/></svg><span>Story</span></button>
+    <button data-go="garden"><svg class="ic"><use href="#i-garden"/></svg><span>Garden</span></button>
+  </nav>
+
+  <div id="sheet" hidden>
+    <div class="sheet-panel" role="dialog" aria-modal="true" id="sheet-panel"></div>
+  </div>
+  <div id="connection-status" class="connection-status" role="status" aria-live="polite" hidden></div>
+  <div id="toast" role="status" aria-live="polite"></div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/games/word-search-levels.js"></script>
+<script src="js/games/word-search.js"></script>
+<script src="js/games/match-art.js"></script>
+<script src="js/games/match-levels.js"></script>
+<script src="js/games/match-three.js"></script>
+<script src="js/album-db.js"></script>
+<script src="js/album-config.js"></script>
+<script src="js/album.js"></script>
+<script src="js/unlocks.js"></script>
+<script src="js/data/letters.js"></script>
+<script src="js/data/secrets.js"></script>
+<script src="js/data/story.js"></script>
+<script src="js/letters.js"></script>
+<script src="js/story.js"></script>
+<script src="js/garden-art.js"></script>
+<script src="js/data/garden.js"></script>
+<script src="js/garden.js"></script>
+<script src="js/renovation.js"></script>
+<script src="js/app.js"></script>
+<script src="js/paint-engine.js"></script>
+<script src="js/painting.js"></script>
+<script>
+/* Keep the game feeling app-like on touch devices: prevent multi-touch page zoom.
+   Single-finger scrolling and game gestures remain available. */
+(function () {
+  document.addEventListener('touchmove', function (event) {
+    if (event.touches && event.touches.length > 1) event.preventDefault();
+  }, { passive: false });
+})();
+</script>
+
+<script>
+/* Home-screen install reminder. Uses the native install prompt when supported. */
+(function () {
+  var banner = document.getElementById('install-promo');
+  var installButton = document.getElementById('install-promo-button');
+  var closeButton = document.getElementById('install-promo-close');
+  var hint = document.getElementById('install-promo-hint');
+  if (!banner || !installButton || !closeButton) return;
+
+  var deferredPrompt = null;
+  var isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  var isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+  try {
+    if (isStandalone || localStorage.getItem('alpu-install-promo-dismissed') === '1') banner.hidden = true;
+  } catch (e) { if (isStandalone) banner.hidden = true; }
+
+  window.addEventListener('beforeinstallprompt', function (event) {
+    event.preventDefault();
+    deferredPrompt = event;
+  });
+  window.addEventListener('appinstalled', function () {
+    banner.hidden = true;
+    deferredPrompt = null;
+  });
+
+  installButton.addEventListener('click', async function () {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      try {
+        var choice = await deferredPrompt.userChoice;
+        if (choice && choice.outcome === 'accepted') banner.hidden = true;
+      } catch (e) { /* The browser controls the install flow. */ }
+      deferredPrompt = null;
+      return;
+    }
+    if (isIOS) {
+      hint.textContent = 'In Safari, tap Share, then “Add to Home Screen”.';
+    } else {
+      hint.textContent = 'Open your browser menu (⋮), then choose “Install app” or “Add to Home screen”.';
+    }
+    installButton.textContent = 'Got it';
+  });
+
+  closeButton.addEventListener('click', function () {
+    banner.hidden = true;
+    try { localStorage.setItem('alpu-install-promo-dismissed', '1'); } catch (e) {}
+  });
+})();
+</script>
+
+</body>
+</html>

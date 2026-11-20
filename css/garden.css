@@ -1,0 +1,44 @@
+/* Little Garden */
+.g-tabs{display:flex;gap:6px;overflow-x:auto;padding:2px 0 4px;scrollbar-width:none}
+.g-tabs::-webkit-scrollbar{display:none}
+.g-tab{min-height:44px;flex:1 0 auto;display:inline-flex;align-items:center;justify-content:center;gap:3px;padding:8px 9px;border-radius:99px;background:var(--white);border:1px solid var(--line);color:var(--soft);font-size:12.5px;font-weight:600;white-space:nowrap}
+.g-tab.on{background:var(--pink);color:#fff;border-color:var(--pink-deep)}
+.g-tab.locked{background:var(--lav);color:var(--lav-deep);border-color:transparent}
+.g-tab .ic{width:14px;height:14px}
+.g-blurb{color:var(--soft);font-size:13px;text-align:center;margin:8px 0}
+.g-scene{position:relative;width:100%;aspect-ratio:360/440;max-height:62dvh;margin:0 auto;border-radius:26px;overflow:hidden;box-shadow:var(--shadow);border:2px solid var(--white);container-type:inline-size}
+.g-bg{position:absolute;inset:0;width:100%;height:100%}
+.g-sign{position:absolute;left:3%;top:33%;width:28%;min-height:11%;padding:5px 4px;background:#f1d3bb;border:2px solid #d9a98c;border-radius:8px;text-align:center;box-shadow:0 3px 0 #b98a72;display:flex;flex-direction:column;justify-content:center;color:#6b4233;transform:rotate(-3deg);z-index:2;line-height:1.15}
+.g-sign::after{content:"";position:absolute;left:46%;top:100%;width:8%;height:90%;background:#b98a72;z-index:-1}
+.g-sign b{font:600 clamp(9px,3.6cqw,14px) var(--serif);overflow-wrap:anywhere}
+.g-sign small{font-size:clamp(7px,2.4cqw,10px);opacity:.8}
+.g-plot,.g-spot{position:absolute;transform:translate(-50%,-85%);padding:0;border-radius:14px;z-index:3}
+.g-plot{width:19%;aspect-ratio:64/80}
+.g-spot{width:19%;aspect-ratio:1;transform:translate(-50%,-70%);z-index:2}
+.g-plot svg,.g-spot svg{width:100%;height:100%;display:block;overflow:visible}
+.g-spot.aim{box-shadow:0 0 0 3px var(--pink-deep);background:rgba(255,255,255,.35);animation:gring 1.8s ease-in-out infinite}
+.g-spot.aim:not(:has(svg)){border:2.5px dashed var(--pink-deep);box-shadow:none;border-radius:50%}
+.g-plot.aim{background:rgba(255,255,255,.4);box-shadow:0 0 0 3px var(--pink-deep);animation:gring 1.8s ease-in-out infinite}
+.g-spot.lift{filter:drop-shadow(0 0 6px var(--pink-deep));opacity:.8}
+@keyframes gring{50%{box-shadow:0 0 0 7px rgba(246,193,207,.6)}}
+.g-plot.has.s3 .sway{transform-origin:32px 70px;animation:sway 4s ease-in-out infinite}
+@keyframes sway{50%{transform:rotate(2.5deg)}}
+.g-plot.has svg{animation:grow .5s ease both}
+.g-bf{position:absolute;width:9%;z-index:4;pointer-events:none;animation:flit 11s ease-in-out infinite}
+.g-bf svg{width:100%;animation:flap .5s ease-in-out infinite alternate}
+.g-bf.b0{left:20%;top:22%}.g-bf.b1{left:58%;top:30%;animation-delay:-4s}.g-bf.b2{left:72%;top:55%;animation-delay:-7s}
+@keyframes flit{0%,100%{transform:translate(0,0)}25%{transform:translate(40px,-16px)}50%{transform:translate(8px,22px)}75%{transform:translate(-30px,-8px)}}
+@keyframes flap{to{transform:scaleX(.6)}}
+.g-hint{min-height:20px;text-align:center;font-size:13px;color:var(--soft);margin:8px 0 2px}
+.g-hint.on{color:var(--rose);font-weight:600}
+.g-tray{margin-top:8px;padding:12px}
+.g-items{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:8px;margin-top:10px}
+.g-item{position:relative;display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 4px;border-radius:16px;background:var(--cream);border:2px solid transparent;font-size:11.5px;color:var(--soft);min-height:84px}
+.g-item.on{border-color:var(--pink-deep);background:var(--white);box-shadow:var(--shadow-s)}
+.g-item i{width:46px;height:46px;display:block}.g-item i svg{width:100%;height:100%}
+.g-item em{position:absolute;top:4px;right:6px;font-style:normal;font-weight:700;color:var(--rose);font-size:12px}
+.g-empty{grid-column:1/-1;text-align:center;color:var(--soft);font-size:13px;padding:8px}
+.g-stage{display:flex;gap:8px;justify-content:center;margin:0 0 14px}
+.g-stage i{width:34px;height:8px;border-radius:99px;background:var(--lav)}.g-stage i.on{background:var(--pink-deep)}
+.g-wide{width:100%}
+@media (max-height:640px){.g-scene{max-height:56dvh}}

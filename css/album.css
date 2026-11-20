@@ -1,0 +1,88 @@
+/* Our Little Album: scrapbook look. Handwriting uses fonts already on the device (no downloads). */
+#screen-album{--hand:"Bradley Hand","Segoe Print","Chalkboard SE","Marker Felt","Noteworthy","Comic Sans MS",cursive;--fit:contain}
+.hand{font-family:var(--hand);color:var(--rose);font-size:18px;line-height:1.2}
+.tape{position:absolute;display:block;width:78px;height:22px;opacity:.88;z-index:2;pointer-events:none;box-shadow:0 1px 2px rgba(90,61,58,.12);background:repeating-linear-gradient(135deg,rgba(255,255,255,.55) 0 5px,transparent 5px 10px),var(--tp,#f6c1cf)}
+.t-pink{--tp:#f6c1cf}.t-lav{--tp:#d9c8f0}.t-sage{--tp:#cfe5c8}.t-butter{--tp:#fbe6a8}
+.tape.l{left:-22px;top:14px;transform:rotate(-38deg)}
+.tape.r{right:-22px;top:14px;transform:rotate(38deg)}
+.tape.top{left:50%;top:-11px;width:62px;height:20px;transform:translateX(-50%) rotate(-3deg)}
+
+.alb-page{position:relative;background:#fffdfa;border-radius:6px 24px 24px 6px;border-left:7px solid var(--pink);padding:30px 18px 20px;box-shadow:var(--shadow);transform-origin:left center;background-image:radial-gradient(#f6dbe3 1px,transparent 1.2px);background-size:18px 18px}
+.alb-page.turn-next{animation:turnNext .55s ease both}
+.alb-page.turn-prev{transform-origin:right center;animation:turnPrev .55s ease both}
+@keyframes turnNext{from{transform:perspective(1100px) rotateY(-70deg);opacity:.15}to{transform:none;opacity:1}}
+@keyframes turnPrev{from{transform:perspective(1100px) rotateY(70deg);opacity:.15}to{transform:none;opacity:1}}
+.stk{position:absolute;width:38px;height:38px;pointer-events:none}
+.stk-a{right:12px;bottom:-12px;transform:rotate(14deg)}
+.stk-b{left:10px;bottom:-14px;width:34px;height:34px;transform:rotate(-20deg)}
+.alb-title{font-size:30px;text-align:center;line-height:1.15}
+.alb-page>.hand{text-align:center}
+.alb-blurb{text-align:center;color:var(--soft);font-size:14px;margin:6px 0 8px}
+.alb-count{text-align:center;font-size:14px;color:var(--soft);margin:8px 0 6px}
+.alb-count.lockedtxt{color:var(--lav-deep);font-weight:600}
+.alb-page .bar{max-width:220px;margin:0 auto}
+.alb-back{margin:0 0 10px 2px;color:var(--rose);font-weight:700;font-size:15px;padding:8px 10px;border-radius:99px}
+.alb-total{text-align:center;margin-top:14px}
+.alb-total b{display:block;font:600 40px var(--serif);color:var(--rose);line-height:1}
+.alb-total span{font-size:13px;color:var(--soft)}
+.alb-next{text-align:center;font-family:var(--hand);color:var(--soft);margin-top:10px}
+
+.alb-chapters{display:flex;flex-direction:column;gap:16px;margin-top:26px}
+.chap-card{position:relative;display:flex;align-items:center;gap:14px;text-align:left;width:100%;background:#fffdfa;border-radius:18px;padding:16px 14px;box-shadow:var(--shadow-s);border:1px solid var(--line);transition:transform .15s}
+.chap-card:nth-child(odd){transform:rotate(-.6deg)}.chap-card:nth-child(even){transform:rotate(.6deg)}
+.chap-card:active{transform:scale(.98)}
+.chap-card.locked{background:#f8f2fb}
+.chap-stk{width:44px;height:44px;flex:none}
+.chap-card.locked .chap-stk{filter:grayscale(.8);opacity:.55}
+.chap-text{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.chap-text strong{font:600 18px var(--serif)}
+.chap-text small{color:var(--soft);font-size:13px}
+.chap-text .bar{margin:6px 0 0;max-width:none;height:8px}
+.chap-lock{color:var(--lav-deep)}
+.chap-card.complete{border-color:var(--pink-deep)}
+.new{position:absolute;top:-8px;right:-4px;background:var(--pink-deep);color:#fff;font:700 11px var(--sans);padding:2px 9px;border-radius:99px;transform:rotate(6deg);z-index:3}
+
+.alb-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px 16px;margin:20px 2px 16px}
+.pol{position:relative;background:#fff;padding:8px 8px 6px;border-radius:6px;box-shadow:0 3px 10px rgba(120,60,80,.2);transform:rotate(-2deg);transition:transform .2s;text-align:center;width:100%}
+.pol:nth-child(even){transform:rotate(1.8deg)}
+.pol:active{transform:scale(.96)}
+.pol .frame{aspect-ratio:1;border-radius:14px;background:var(--cream);overflow:hidden;display:grid;place-items:center}
+.pol .frame img{width:100%;height:100%;object-fit:var(--fit);display:block}
+.pol.locked .frame{background:#efe7f6;color:var(--lav-deep)}
+.pol.locked .frame .ic{width:30px;height:30px}
+.pol .cap{display:block;font-family:var(--hand);font-size:16px;color:var(--text);min-height:30px;line-height:30px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.pol.locked .cap{color:var(--soft);font-size:14px}
+.alb-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;width:100%;height:100%;min-height:110px;color:var(--pink-deep);font-family:var(--hand);font-size:14px}
+.ph-cam{width:42px;height:42px}
+
+.alb-pagenav{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:6px}
+.pn{width:42px;height:42px;border-radius:50%;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-s);font-size:24px;color:var(--rose);line-height:1}
+.pn:disabled{opacity:.35}
+.dots{display:flex;gap:6px}.dots i{width:7px;height:7px;border-radius:50%;background:var(--lav)}.dots i.on{background:var(--pink-deep)}
+
+/* viewer, zoom, chapter complete */
+#alb-viewer,#alb-celebrate{position:absolute;inset:0;z-index:25;background:rgba(90,61,58,.5);display:flex;align-items:center;justify-content:center;padding:14px;animation:enter .2s}
+#alb-celebrate{z-index:35;background:rgba(255,243,245,.94)}
+.alb-card{position:relative;background:var(--bg);border-radius:22px;width:100%;max-width:440px;max-height:100%;overflow-y:auto;padding:22px 16px 18px;text-align:center;box-shadow:var(--shadow);font-family:var(--sans)}
+.alb-x{position:absolute;top:8px;right:10px;width:38px;height:38px;font-size:26px;color:var(--soft);border-radius:50%;z-index:4}
+.alb-bigframe{position:relative;display:block;width:100%;background:#fff;padding:10px 10px 12px;border-radius:8px;box-shadow:0 4px 14px rgba(120,60,80,.22);margin:10px auto 14px;transform:rotate(-1deg)}
+.alb-bigframe .in{display:block;line-height:0;text-align:center;border-radius:14px;overflow:hidden;background:var(--cream)}
+.alb-bigframe img{display:inline-block;vertical-align:top;max-width:100%;max-height:46dvh;width:auto;height:auto}
+.alb-bigframe .alb-ph{line-height:1.4;min-height:150px}
+.alb-mtitle{font:600 24px var(--serif)}
+.alb-date{margin-top:2px}
+.alb-desc{color:var(--soft);margin:8px 4px 0}
+.alb-note{position:relative;background:#fff8ec;border-radius:10px;padding:18px 14px 12px;margin:18px 6px 0;box-shadow:var(--shadow-s);transform:rotate(.8deg);text-align:left}
+.alb-note p{font-family:var(--hand);font-size:18px;line-height:1.45;margin-top:4px}
+.alb-import{display:flex;flex-direction:column;gap:6px;align-items:center;margin-top:16px}
+.alb-import .btn{flex-direction:row;font-size:14px;padding:8px 16px}
+.alb-card .alb-pagenav{margin-top:14px}
+#alb-zoom{position:absolute;inset:0;z-index:40;background:rgba(40,25,25,.93);display:grid;place-items:center;padding:8px}
+#alb-zoom img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:6px}
+.cele{background:#fffdfa}
+.cele-fl{width:78px;height:78px;margin:0 auto;animation:wspop .7s ease}
+.cele .btn{margin-top:16px;padding:12px 28px}
+.alb-conf{position:absolute;top:-8%;width:34px;height:34px;animation:albfall 3s ease-in forwards;pointer-events:none}
+.alb-conf svg{width:100%;height:100%}
+@keyframes albfall{to{top:104%;transform:rotate(320deg)}}
+#screen-album{padding-bottom:10px}

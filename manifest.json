@@ -1,0 +1,17 @@
+{
+  "name": "A Little Piece of Us",
+  "short_name": "Little Piece",
+  "description": "A little world made just for you.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#f6f0ff",
+  "theme_color": "#e9defa",
+  "icons": [
+    { "src": "assets/icons/icon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

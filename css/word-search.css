@@ -1,0 +1,35 @@
+/* Word Search screen */
+#app.in-game #nav{display:none}
+.ws-head{display:flex;align-items:center;gap:10px}
+.ws-head .title{flex:1;text-align:center;line-height:1.2}
+.ws-head h2{font-size:24px}
+.ws-head small{color:var(--soft);font-size:14px}
+.icon-btn{width:44px;height:44px;border-radius:50%;background:var(--white);border:1px solid var(--line);box-shadow:var(--shadow-s);display:grid;place-items:center;color:var(--rose);flex:none}
+.icon-btn:active{transform:scale(.94)}
+.ws-prog{display:flex;align-items:center;gap:12px;margin:14px 2px 0;font-size:14px;color:var(--soft)}
+.ws-prog span{white-space:nowrap;min-width:88px}
+.ws-prog .bar{flex:1}
+.ws-board{width:min(100%,54dvh);aspect-ratio:1;margin:14px auto;background:var(--white);border-radius:22px;padding:8px;box-shadow:var(--shadow);container-type:inline-size;touch-action:none;user-select:none;-webkit-user-select:none}
+.ws-grid{display:grid;width:100%;height:100%;grid-template-columns:repeat(var(--n,6),1fr);grid-template-rows:repeat(var(--n,6),1fr);touch-action:none;cursor:pointer}
+.ws-cell{display:grid;place-items:center;border-radius:32%;font:700 4.4vw var(--sans);font-size:calc(100cqw / var(--n,6) * .5);color:var(--text);transition:background .12s,color .12s;pointer-events:none}
+.ws-cell.sel{background:var(--pink-deep);color:#fff}
+.ws-cell.f0{background:#f6c1cf}.ws-cell.f1{background:#e4d9f3}.ws-cell.f2{background:#fbd9c4}
+.ws-cell.f3{background:#d5e8d0}.ws-cell.f4{background:#fbeab8}.ws-cell.f5{background:#f0b3c6}
+.ws-cell.pop{animation:wspop .5s ease}
+.ws-cell.hint{animation:wshint .9s ease 3;background:var(--lav)}
+@keyframes wspop{40%{transform:scale(1.25)}100%{transform:scale(1)}}
+@keyframes wshint{50%{transform:scale(1.2);background:var(--pink)}}
+.ws-words{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:4px 0 14px}
+.ws-chip{background:var(--cream);border:1px solid var(--line);border-radius:99px;padding:4px 12px;font-size:14px;font-weight:600;letter-spacing:.3px;transition:background .2s}
+.ws-chip.found{background:var(--pink);color:#fff;text-decoration:line-through;text-decoration-thickness:2px}
+.ws-chip.pop{animation:wspop .5s ease}
+.btn.ws-hint,.btn.ws-wide{flex-direction:row;display:flex;margin:0 auto;padding:10px 22px;font-size:15px}
+.btn.ws-wide{width:100%}
+.ws-stars{margin:4px 0 10px}
+.ws-stars span{display:inline-block;font-size:46px;line-height:1;color:var(--lav);margin:0 4px;animation:starin .5s ease both}
+.ws-stars span.on{color:var(--pink-deep)}
+@keyframes starin{from{transform:scale(.2) rotate(-30deg);opacity:0}to{transform:none;opacity:1}}
+.ws-reward{color:var(--rose)!important;font-weight:600}
+@media (max-height:640px){.ws-board{width:min(100%,48dvh)}}
+
+@media (orientation:landscape) and (min-width:600px){#app.in-game #nav{display:flex}}

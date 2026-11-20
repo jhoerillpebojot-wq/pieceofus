@@ -1,0 +1,4 @@
+The 39 distinct supplied photos are connected to memories in js/album-config.js.
+Two byte-for-byte duplicate image files are preserved in the project folders but are not shown twice in the main album.
+The three special-collection memories reuse selected photos from the main chapters.
+All configured photo paths are local and are included in the service-worker photo cache.
